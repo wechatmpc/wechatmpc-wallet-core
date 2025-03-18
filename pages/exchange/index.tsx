@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Image } from "@nextui-org/image";
 import { IoIosArrowForward } from "react-icons/io";
-import { TbTransferVertical } from "react-icons/tb";
+// import { TbTransferVertical } from "react-icons/tb";
 import { Tabs, Tab } from "@nextui-org/tabs";
 import { Button } from "@nextui-org/button";
 
@@ -63,7 +63,7 @@ export default function ExchangePage() {
         </div>
 
         <div className="flex justify-center items-center text-gray-500">
-          <TbTransferVertical />
+          {/* <TbTransferVertical /> */}
           <div className="mx-2 border rounded-md px-2 py-1 text-sm">
             1 USDT = 0.0000167 BTC
           </div>
