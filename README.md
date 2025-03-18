@@ -6,7 +6,7 @@
 
 用于规避Wechat-miniapp的NPM包兼容问题。
 
-# Tonspack wallet font-end Next.js version 
+# 【Origin Readme】Tonspack wallet font-end Next.js version 
 
 To build better user experience , and reduce the cache issues during the telegram webapp hot update . 
 

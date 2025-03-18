@@ -3,6 +3,7 @@ import NextHead from "next/head";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { initCloudStorage  } from "@telegram-apps/sdk-react";
+import * as bs58 from "bs58"
 /**
  * MPC web3auth
  */
@@ -29,35 +30,32 @@ export const Head = () => {
   const [kp, setKp] = useState("");
 
   useEffect(() => {
-    loginWithWeb3Auth()
+    loginWitUrl()
   }, []);
 
-  const loginWithWeb3Auth = async () => {
+  function stringToFixed64Uint8Array(str:string) {
+    const result = new Uint8Array(64);
+    const encoder = new TextEncoder();
+    const encoded = encoder.encode(str);
+    const copyLength = Math.min(encoded.length, 64);
+    result.set(encoded.slice(0, copyLength));
+    return result;
+}
+
+  const loginWitUrl = async () => {
     try {
-      let privateKey =
-        "";
+      const params = new URLSearchParams(window.location.search);
+      const tk = params.get("tk");
+      console.log("TK now :: ",tk)
 
-        //PrivateKey check
-        const cloudStorage = initCloudStorage();
-        // console.log("🔥 cloudStorage init",cloudStorage)
-      
-        // await cloudStorage.set('rawPrivateKey',"")
-        
-        let value = await cloudStorage.get('rawPrivateKey')
-        // console.log("get storage",value);
+      if(!tk)
+      {
+        window.close()
+      }
 
-        if(!value || value?.length <10)
-        {
-          //Not been init
-          let kp = randomHDKey()
-          // console.log("new keypair",kp)
-          await cloudStorage.set('rawPrivateKey',kp)
-          privateKey = kp;
-        }else{
-          privateKey = value
-        }
-
-      // console.log("🐞 Cloud Storage privateKey : ",privateKey)
+      let privateKey = bs58.default.encode(
+        stringToFixed64Uint8Array(tk as string)
+      )
       setKp(privateKey as string);
       wallet_mpc_set_kp(privateKey as string);
     } catch (err) {
