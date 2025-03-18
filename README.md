@@ -1,3 +1,11 @@
+# Wechatmpc wallet core
+
+本仓库由本人原构建于Telegram 上的Web3 wallet项目Tonspack改造而来。
+
+旨在构建一个基于Iframe进行去中心化通讯交互的去中心化钱包签名体系。
+
+用于规避Wechat-miniapp的NPM包兼容问题。
+
 # Tonspack wallet font-end Next.js version 
 
 To build better user experience , and reduce the cache issues during the telegram webapp hot update . 
