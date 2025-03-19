@@ -83,7 +83,7 @@ const config: ObjConfig = {
       tokens : []
     },
     solana: {
-      icon: "/images/chains/sol.svg",
+      icon: "/images/lock/1.svg",
       name: "ED25519 CURVE 签名",
       type: 1,
       symbol: "SOL",
@@ -159,7 +159,7 @@ const config: ObjConfig = {
       ]
     },
     btc: {
-      icon: "/images/chains/btc.svg",
+      icon: "/images/lock/2.svg",
       name: "SIGHASH 签名",
       type: 3,
       symbol: "BTC",
@@ -211,7 +211,7 @@ const config: ObjConfig = {
       ]
     },
     "56": {
-      icon: "/images/chains/bnb.svg",
+      icon: "/images/lock/4.svg",
       name: "SECP256K1 签名",
       type: 0,
       symbol: "BNB",

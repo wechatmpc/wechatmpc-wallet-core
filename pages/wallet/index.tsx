@@ -41,7 +41,7 @@ export default function DocsPage() {
       address: "",
       full_address: "",
       scan: "",
-      img: "",
+      img: "/images/lock/2.svg",
       name: "",
       bal: "",
       tokens:[
@@ -130,10 +130,15 @@ export default function DocsPage() {
   {
     return (
       <div className="w-full">
-        <Button color="success" style={{width:"70%"}}>
+        <Button color="success" style={{width:"70%"}}  onClick={
+          ()=>
+          {
+            console.log(chainId)
+          }
+        }>
           Sign New Message
         </Button>
-        <Button style={{width:"30%"}}>
+        <Button style={{width:"30%"}} onClick={deving}>
           Share
         </Button>
       </div>
@@ -159,7 +164,7 @@ export default function DocsPage() {
             style={{ maxWidth: "400px", width: "100%" }}
             onPress={() => {
               console.log("Card details router");
-              Router.push({ pathname: "/wallet_details", query: JSON.stringify(item) });
+              // Router.push({ pathname: "/wallet_details", query: JSON.stringify(item) });
             }}
           >
             <CardHeader className="justify-between">
@@ -170,6 +175,9 @@ export default function DocsPage() {
                   radius="sm"
                   src={item.img}
                   width={40}
+                  style={{
+                    color:"white"
+                  }}
                 />
                 <div className="flex flex-col gap-1 items-start justify-center">
                   <h4 className="text-lg font-semibold leading-none text-default-600">
