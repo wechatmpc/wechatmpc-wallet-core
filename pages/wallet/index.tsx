@@ -130,15 +130,16 @@ export default function DocsPage() {
   {
     return (
       <div className="w-full">
-        <Button color="success" style={{width:"70%"}}  onClick={
+        <Button color="success" style={{width:"70%"}}  onPress={
           ()=>
           {
             console.log(chainId)
+            deving()
           }
         }>
           Sign New Message
         </Button>
-        <Button style={{width:"30%"}} onClick={deving}>
+        <Button style={{width:"30%"}} onPress={deving}>
           Share
         </Button>
       </div>
@@ -162,10 +163,10 @@ export default function DocsPage() {
             radius="lg"
             shadow="sm"
             style={{ maxWidth: "400px", width: "100%" }}
-            onPress={() => {
-              console.log("Card details router");
-              // Router.push({ pathname: "/wallet_details", query: JSON.stringify(item) });
-            }}
+            // onPress={() => {
+            //   console.log("Card details router");
+            //   // Router.push({ pathname: "/wallet_details", query: JSON.stringify(item) });
+            // }}
           >
             <CardHeader className="justify-between">
               <div className="flex gap-5">
