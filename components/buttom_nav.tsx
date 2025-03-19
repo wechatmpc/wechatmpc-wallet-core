@@ -45,7 +45,7 @@ export const ButtomNav = (props: any) => {
   const tabList = [
     {
       name: "dapp",
-      title: "Index",
+      title: "Demo",
       icon: (
         <RiMenu3Line
           color="white"
@@ -63,7 +63,7 @@ export const ButtomNav = (props: any) => {
     },
     {
       name: "wallet",
-      title: "Wallet",
+      title: "签名",
       icon: (
         <RiWallet3Line
           color="white"
@@ -79,27 +79,27 @@ export const ButtomNav = (props: any) => {
         />
       ),
     },
-    {
-      name: "exchange",
-      title: "Exchange",
-      icon: (
-        <RiCoinsLine
-          color="white"
-          size={iconSize}
-          onClick={() => setSwitchRouter("exchange")}
-        />
-      ),
-      activeIcon: (
-        <RiCoinsFill
-          color="white"
-          size={iconSize}
-          onClick={() => setSwitchRouter("exchange")}
-        />
-      ),
-    },
+    // {
+    //   name: "exchange",
+    //   title: "Exchange",
+    //   icon: (
+    //     <RiCoinsLine
+    //       color="white"
+    //       size={iconSize}
+    //       onClick={() => setSwitchRouter("exchange")}
+    //     />
+    //   ),
+    //   activeIcon: (
+    //     <RiCoinsFill
+    //       color="white"
+    //       size={iconSize}
+    //       onClick={() => setSwitchRouter("exchange")}
+    //     />
+    //   ),
+    // },
     {
       name: "setting",
-      title: "Setting",
+      title: "设置",
       icon: (
         <RiSettings5Line
           color="white"

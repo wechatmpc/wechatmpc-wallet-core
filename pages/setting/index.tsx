@@ -1,6 +1,16 @@
 import { useState, useEffect } from "react";
 import { Toaster } from "react-hot-toast";
-import { Image } from "@nextui-org/image";
+import {
+  Image
+} from "@nextui-org/image";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  useDisclosure,
+} from "@nextui-org/modal";
 import { IoIosArrowForward } from "react-icons/io";
 
 import { Loading } from "@/components/loading";
@@ -23,6 +33,18 @@ type walletCard = {
 
 export default function SettingPage() {
   const r = useRouter();
+  
+  const {
+    isOpen: isCommunityOpen,
+    onOpen: onCommunityOpen,
+    onClose: onCommunityClose,
+  } = useDisclosure();
+  
+  const {
+    isOpen: isFeedbackOpen,
+    onOpen: onFeedbackOpen,
+    onClose: onFeedbackClose,
+  } = useDisclosure();
   
   const [isMainPageLoading, setIsMainPageLoading] = useState(true);
 
@@ -49,6 +71,7 @@ export default function SettingPage() {
           size="55"
           // onClick={() => goBack()}
           ></RiWallet3Fill>
+
           <div>
             <p className="text-white font-semibold">WechatMpc 签名管理器</p>
             <p className="text-white text-xs">去中心化分布签名管理微信小程序</p>
@@ -92,7 +115,9 @@ export default function SettingPage() {
         <h2 className="text-white text-sm mt-8">关于我们</h2>
 
 
-          <div className="flex bg-gray-900 rounded-md p-3 mt-2" onClick={() => Router.push({pathname: 'https://t.me/wikig16'})}>
+          <div className="flex bg-gray-900 rounded-md p-3 mt-2" onClick={() => {
+            onFeedbackOpen()
+          }}>
             <div className="min-w-10">
             <RiFeedbackFill 
           color="white"
@@ -107,7 +132,9 @@ export default function SettingPage() {
           </div>
 
 
-          <div className="flex bg-gray-900 rounded-md p-3 mt-2" onClick={() => Router.push({pathname: 'https://t.me/Tonspackdev'})}>
+          <div className="flex bg-gray-900 rounded-md p-3 mt-2" onClick={() => {
+            onCommunityOpen()
+          }}>
             <div className="min-w-10">
             <RiChat1Fill 
           color="white"
@@ -135,6 +162,68 @@ export default function SettingPage() {
               <IoIosArrowForward className="text-white" />
             </div>
           </div>
+
+
+
+          <Modal
+            isOpen={isCommunityOpen}
+            onClose={onCommunityClose}
+            scrollBehavior={"inside"}
+          >
+            <ModalContent>
+              <ModalHeader className="flex w-full">
+                <div className="flex w-full justify-center items-center text-xl">
+                  Join Our Community
+                </div>
+              </ModalHeader>
+              <ModalBody>
+                <div
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center"
+                  }}
+                >
+                  <Image
+                    alt="community QR"
+                    src="https://mpc.sidcloud.cn/communityQr.jpg"
+                    width="100%"
+                  />
+                </div>
+              </ModalBody>
+            </ModalContent>
+          </Modal>
+
+
+
+          <Modal
+            isOpen={isFeedbackOpen}
+            onClose={onFeedbackClose}
+            scrollBehavior={"inside"}
+          >
+            <ModalContent>
+              <ModalHeader className="flex w-full">
+                <div className="flex w-full justify-center items-center text-xl">
+                  Contact Me For Feedback
+                </div>
+              </ModalHeader>
+              <ModalBody>
+                <div
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center"
+                  }}
+                >
+                  <Image
+                    alt="Feedback QR"
+                    src="https://mpc.sidcloud.cn/feedbackQr.jpg"
+                    width="100%"
+                  />
+                </div>
+              </ModalBody>
+            </ModalContent>
+          </Modal>
       </section>
       <Footer />
     </DefaultLayout>

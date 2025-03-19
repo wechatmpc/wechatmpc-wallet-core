@@ -130,8 +130,8 @@ export default function DocsPage() {
   {
     return (
       <div className="w-full">
-        <Button color="primary" style={{width:"70%"}}>
-          Sign Message
+        <Button color="success" style={{width:"70%"}}>
+          Sign New Message
         </Button>
         <Button style={{width:"30%"}}>
           Share

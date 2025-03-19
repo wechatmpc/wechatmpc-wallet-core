@@ -115,7 +115,7 @@ const config: ObjConfig = {
       ]
     },
     ton: {
-      icon: "/images/chains/ton.svg",
+      icon: "/images/chains/cfx.svg",
       name: "Conflux Network 签名",
       type: 2,
       symbol: "TON",

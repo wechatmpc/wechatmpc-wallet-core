@@ -123,8 +123,8 @@ export default function DocsPage() {
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
         <Toaster />
         <div className="inline-block max-w-lg text-center justify-center">
-          <h1 className={title()}>Welcome to</h1>
-          <h1 className={title({ color: "violet" })}>&nbsp;Web3</h1>
+          <h1 className={title()}>欢迎来到</h1>
+          <h1 className={title({ color: "violet" })}>&nbsp;去中心化</h1>
         </div>
         <ButtonGroup>
           {chainBtn.map((item, index) => (
