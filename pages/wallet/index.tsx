@@ -5,10 +5,19 @@ import { Accordion, AccordionItem } from "@nextui-org/accordion";
 import { Divider } from "@nextui-org/divider";
 import { Image } from "@nextui-org/image";
 import { Chip } from "@nextui-org/chip";
+import { Input } from "@nextui-org/input";
 import { useState, useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import Router from "next/router";
-
+import {Snippet} from "@nextui-org/snippet"
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  useDisclosure,
+} from "@nextui-org/modal";
 import { deving, address_readable } from "../../core/utils/utils";
 import {
   wallet_list_generate,
@@ -58,15 +67,27 @@ export default function DocsPage() {
     },
   ]);
 
+  const {
+    isOpen: isSignOpen,
+    onOpen: onSignOpen,
+    onClose: onSignClose,
+  } = useDisclosure();
+
   const [isMainPageLoading, setIsMainPageLoading] = useState(true);
 
   const [isNav, setIsNav] = useState("");
 
+  const [preSignData, setPreSignData] = useState("");
+  const [signData, setSignData] = useState("");
+  const [signType, setSignType] = useState(0);
+
+  const [coreKp,setCoreKp]=useState("");
   useEffect(() => {
     const onload = async () => {
       const mpc_kp = await wallet_mpc_try_get_kp();
 
       if (mpc_kp) {
+        setCoreKp(mpc_kp)
         // console.log("🚧 mpc_kp :: ",mpc_kp)
         const kps = mpc.getKp(mpc_kp);
         // console.log("🚧 kps :: ",kps)
@@ -134,7 +155,9 @@ export default function DocsPage() {
           ()=>
           {
             console.log(chainId)
-            deving()
+            // deving()
+            setSignType(chainId)
+            onSignOpen()
           }
         }>
           Sign New Message
@@ -193,6 +216,11 @@ export default function DocsPage() {
                   radius="lg"
                   size="sm"
                   variant="flat"
+                  onClick={
+                    ()=>{
+                      console.log("copy me")
+                    }
+                  }
                 >
                   Copy
                 </Chip>
@@ -255,6 +283,129 @@ export default function DocsPage() {
           </Button>
         </div> */}
       </section>
+
+
+      <Modal
+            isOpen={isSignOpen}
+            onClose={onSignClose}
+            scrollBehavior={"inside"}
+          >
+            <ModalContent>
+              <ModalHeader className="flex w-full">
+                <div className="flex w-full justify-center items-center text-xl">
+                  Sign New Message
+                </div>
+              </ModalHeader>
+              <ModalBody>
+                <div
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center"
+                  }}
+                >
+                  <Input 
+                  style={{width:"100%"}}
+                  placeholder="Input the message to sign"
+                  onChange={(e:any)=>{
+                    setPreSignData(e.currentTarget.value)
+                  }}
+                  >
+                  </Input>
+
+                  <Button
+                  color="primary"
+                  onPress={
+                    ()=>
+                    {
+                      let finalSign = ""
+                      const kps = mpc.getKp(
+                        coreKp
+                      );
+                      if(kps)
+                      {
+                        console.log(
+                          preSignData,
+                          kps,
+                          preSignData
+                        )
+                        switch(signType)
+                        {
+                          case 0 : //btc
+                            const btcSign = mpc.btc.sign(
+                              kps,
+                              preSignData
+                            );
+                            finalSign = btcSign ? btcSign :"";
+
+                          break;
+                          case 1 : //EVM 
+                            let rawSign = mpc.evm.sign(
+                              kps,
+                              preSignData
+                            );
+                            finalSign = rawSign ? rawSign.toString() :"";
+                          break;
+                          case 2 : //solana
+                              let solSign = mpc.sol.sign(
+                              kps,
+                              preSignData
+                            );
+                            finalSign = solSign ? solSign.toString() :"";
+                          break;
+                          case 3 : //Conflux
+                          break;
+                          default:
+                            finalSign = "Sign failed"
+                          break;
+                        }
+                      }
+                      setSignData(
+                        finalSign
+                      )
+                    }
+                  }
+                  >
+                    Confirm
+                  </Button>
+                </div>
+
+                <div
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center"
+                  }}
+                >
+                  {
+                    signData?
+                    <Snippet
+                    tooltipProps={{
+                     // color: "foreground",
+                     content: "Copy Me",
+                     disableAnimation: true,
+                     placement: "right",
+                     closeDelay: 0,
+                   }}
+                   codeString={signData}
+               style={{
+                 width:"100%"
+               }}
+             >
+              {
+               signData.slice(0,20)+"..."
+              }
+             </Snippet> :
+             null
+                  }
+
+                </div>
+              </ModalBody>
+            </ModalContent>
+            <ModalFooter>
+            </ModalFooter>
+          </Modal>
+
       <Footer />
     </DefaultLayout>
   );
