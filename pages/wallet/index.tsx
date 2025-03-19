@@ -126,10 +126,25 @@ export default function DocsPage() {
     );
   }
 
+  function actionBtn(chainId:any)
+  {
+    return (
+      <div className="w-full">
+        <Button color="primary" style={{width:"70%"}}>
+          Sign Message
+        </Button>
+        <Button style={{width:"30%"}}>
+          Share
+        </Button>
+      </div>
+    )
+  }
+
   return (
     <DefaultLayout name={isNav}>
       {isMainPageLoading ? <Loading /> : null}
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+        <div className="text-xl"> <Chip color="success">WechatMpc</Chip> 签名管理器 </div>
         <Toaster />
         {/* <div className="inline-block max-w-lg text-center justify-center">
           <h1 className={title()}>Wallets</h1>
@@ -179,62 +194,40 @@ export default function DocsPage() {
             <CardBody
               style={{ maxWidth: "400px", width: "100%", textAlign: "center" }}
             >
-              {/* TODO: fetch data from blockchain */}
-              {
-                // <Accordion isCompact defaultExpandedKeys={["1"]}>
-                //   <AccordionItem
-                //     key="1"
-                //     classNames={{
-                //       subtitle: "text-xs",
-                //     }}
-                //     subtitle={address_readable(12, 12, item.full_address)}
-                //     textValue="Wallet Details"
-                //   >
-                     
-                //   </AccordionItem>
-                // </Accordion>
-              }
               {
               isClient && (
-                <Accordion isCompact defaultExpandedKeys={["1"]}>
+                <Accordion isCompact defaultExpandedKeys={["0"]}>
                   <AccordionItem
-                    key="1"
+                    key={index}
                     classNames={{
                       subtitle: "text-xs",
                     }}
                     subtitle={address_readable(12, 12, item.full_address)}
                     textValue="Wallet Details"
                   >
-                   {/* <div style={{padding:"10px"}}>
-                    <CoinBar
-                        change={-0.2}
-                        desc="Binance Coin"
-                        img={item.img}
-                        owns={0}
-                        ownsvalue={0.0}
-                        title="BNB"
-                        unit="USD"
-                        value={512.2}
-                      />
-                    </div> */}
                     {
-                                      item.tokens.map(
-                                        (tk, tki) => (
-                                          <div style={{padding:"10px"}}>
-                                          <CoinBar
-                                              change={""}
-                                              desc={tk.name}
-                                              img={tk.icon}
-                                              owns={tk.bal}
-                                              ownsvalue={tk.bal}
-                                              title={tk.symbol}
-                                              unit={""}
-                                              value={tk.price}
-                                            />
-                                          </div>  
-                                        )
-                                      )
+                      //Wallet Controller
+                                      // item.tokens.map(
+                                      //   (tk, tki) => (
+                                      //     <div style={{padding:"10px"}}>
+                                      //     <CoinBar
+                                      //         change={""}
+                                      //         desc={tk.name}
+                                      //         img={tk.icon}
+                                      //         owns={tk.bal}
+                                      //         ownsvalue={tk.bal}
+                                      //         title={tk.symbol}
+                                      //         unit={""}
+                                      //         value={tk.price}
+                                      //       />
+                                      //     </div>  
+                                      //   )
+                                      // )
                     }
+                    {
+                      actionBtn(0)
+                    }
+                    
                   </AccordionItem>
                 </Accordion>
               )
@@ -243,7 +236,7 @@ export default function DocsPage() {
           </Card>
         ))}
 
-        <div style={{ maxWidth: "400px", width: "100%", textAlign: "center" }}>
+        {/* <div style={{ maxWidth: "400px", width: "100%", textAlign: "center" }}>
           <Button
             color="primary"
             style={{ maxWidth: "400px", width: "100%", textAlign: "center" }}
@@ -251,9 +244,7 @@ export default function DocsPage() {
           >
             Managment
           </Button>
-
-          {/* <Button color="primary" onClick={()=>{Router.push("test")}} style={{maxWidth:"400px",width:"100%" ,textAlign:"center"}}>Test</Button> */}
-        </div>
+        </div> */}
       </section>
       <Footer />
     </DefaultLayout>

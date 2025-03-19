@@ -50,8 +50,8 @@ export default function SettingPage() {
           // onClick={() => goBack()}
           ></RiWallet3Fill>
           <div>
-            <p className="text-white font-semibold">Tonspack Wallet</p>
-            <p className="text-white text-xs">Web3auth MPC Version</p>
+            <p className="text-white font-semibold">WechatMpc 签名管理器</p>
+            <p className="text-white text-xs">去中心化分布签名管理微信小程序</p>
           </div>
         </div>
         {/* Setting Card1 */}
@@ -65,34 +65,15 @@ export default function SettingPage() {
           ></RiSeedlingFill>
           </div>
           <div className="ml-2">
-            <p className="text-white">Backup</p>
+            <p className="text-white">私钥备份</p>
             <p className="text-white text-xs mt-1">
-              Keep a copy of your wallet in a safe place and never give it to
-              others. Anyone who gets hold of your Backup file will be able to
-              access your coins
+            点我进行私钥备份。请妥善保存您的私钥副本，并且绝不要将其交给他人。任何获取您的备份文件的人都可以使用你的名义进行签名。
             </p>
           </div>
         </div>
-        {/* Setting Card2 */}
-        {/* <div className="flex bg-gray-900 rounded-md p-3 mt-2">
-          <div className="min-w-10">
-            <Image
-              alt="chain logo"
-              height={45}
-              src="/images/chains/btc.svg"
-              width={45}
-            />
-          </div>
-          <div className="ml-2">
-            <p className="text-white">Import</p>
-            <p className="text-white text-xs mt-1">
-              Import your wallet using Private Key, Mnemonic, WIF or XPRV
-            </p>
-          </div>
-        </div> */}
 
         {/* Setting Column2 */}
-        <h2 className="text-white text-sm mt-8">SERVICE</h2>
+        <h2 className="text-white text-sm mt-8">更多服务</h2>
         <div className="flex bg-gray-900 rounded-md p-3 mt-2" onClick={deving}>
           <div className="min-w-10">
           <RiSailboatFill 
@@ -102,29 +83,13 @@ export default function SettingPage() {
           ></RiSailboatFill>
           </div>
           <div className="ml-2 grow flex justify-between items-center">
-            <p className="text-white text-sm">Bridge Master</p>
+            <p className="text-white text-sm">通用多端多平台签名支付服务</p>
             <p className="text-xxs text-white">Will be live soon</p>
           </div>
         </div>
         {/* Setting Column3 */}
 
-        <h2 className="text-white text-sm mt-8">Support</h2>
-        {/* {[1, 2, 3].map((item, index) => (
-          <div key={index} className="flex bg-gray-900 rounded-md p-3 mt-2">
-            <div className="min-w-10">
-              <Image
-                alt="chain logo"
-                height={45}
-                src="/images/chains/btc.svg"
-                width={45}
-              />
-            </div>
-            <div className="ml-2 grow flex justify-between items-center">
-              <p className="text-white text-sm">WalletConnect</p>
-              <IoIosArrowForward className="text-white" />
-            </div>
-          </div>
-        ))} */}
+        <h2 className="text-white text-sm mt-8">关于我们</h2>
 
 
           <div className="flex bg-gray-900 rounded-md p-3 mt-2" onClick={() => Router.push({pathname: 'https://t.me/wikig16'})}>
@@ -151,13 +116,13 @@ export default function SettingPage() {
           ></RiChat1Fill>
             </div>
             <div className="ml-2 grow flex justify-between items-center">
-              <p className="text-white text-sm">Join our channel</p>
+              <p className="text-white text-sm">Join our community</p>
               <IoIosArrowForward className="text-white" />
             </div>
           </div>
 
 
-          <div className="flex bg-gray-900 rounded-md p-3 mt-2" onClick={() => Router.push({pathname: 'http://github.com/tonspay'})}>
+          <div className="flex bg-gray-900 rounded-md p-3 mt-2" onClick={() => Router.push({pathname: 'https://github.com/carzygod/wechatmpc-docs'})}>
             <div className="min-w-10">
             <RiGithubFill 
           color="white"

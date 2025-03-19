@@ -11,7 +11,7 @@ export const Logo: React.FC<IconSvgProps> = ({
   <img
     alt="logo"
     src="/banners/banner-light-blue.png"
-    style={{ width: "100%", maxWidth: "400px" }}
+    style={{ width: "50%", maxWidth: "50px" }}
   />
 );
 

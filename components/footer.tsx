@@ -5,11 +5,11 @@ export default function Footer() {
       <Link
         isExternal
         className="flex items-center gap-1 text-current"
-        href="https://tonspack.com/"
-        title="Tonspack wallet"
+        href="https://mpc.sidcloud.cn/"
+        title="Wechatmpc"
       >
-        <span className="text-default-600">Powered by</span>
-        <p className="text-primary">Tonpack team</p>
+        <span className="text-default-600 text-sm">Copyright © 2025 WechatMpc All Rights Reserved.</span>
+        {/* <p className="text-primary">Tonpack team</p> */}
       </Link>
     </footer>
   );

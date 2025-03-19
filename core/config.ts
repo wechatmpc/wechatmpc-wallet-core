@@ -84,7 +84,7 @@ const config: ObjConfig = {
     },
     solana: {
       icon: "/images/chains/sol.svg",
-      name: "Solana",
+      name: "ED25519 CURVE 签名",
       type: 1,
       symbol: "SOL",
       decimal: 9,
@@ -116,7 +116,7 @@ const config: ObjConfig = {
     },
     ton: {
       icon: "/images/chains/ton.svg",
-      name: "Ton",
+      name: "Conflux Network 签名",
       type: 2,
       symbol: "TON",
       decimal: 9,
@@ -160,7 +160,7 @@ const config: ObjConfig = {
     },
     btc: {
       icon: "/images/chains/btc.svg",
-      name: "Bitcoin",
+      name: "SIGHASH 签名",
       type: 3,
       symbol: "BTC",
       decimal: 8,
@@ -212,7 +212,7 @@ const config: ObjConfig = {
     },
     "56": {
       icon: "/images/chains/bnb.svg",
-      name: "Binance Smart Chain",
+      name: "SECP256K1 签名",
       type: 0,
       symbol: "BNB",
       decimal: 18,
