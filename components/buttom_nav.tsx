@@ -13,6 +13,7 @@ import {
 
 export const ButtomNav = (props: any) => {
   const router = useRouter();
+  const { query } = router;
   // console.log(props)
   const name = props.name;
   const [activeTabs, setActiveTabs] = useState(props.name);
@@ -21,16 +22,28 @@ export const ButtomNav = (props: any) => {
   useEffect(() => {
     switch (switchRouter) {
       case "exchange":
-        router.push("/exchange");
+        router.push({
+          pathname: "/exchange",
+          query: query
+        });
         break;
       case "wallet":
-        router.push("/wallet");
+        router.push({
+          pathname: "/wallet",
+          query: query
+        });
         break;
       case "setting":
-        router.push("/setting");
+        router.push({
+          pathname: "/setting",
+          query: query
+        });
         break;
       case "dapp":
-        router.push("/dapp");
+        router.push({
+          pathname: "/dapp",
+          query: query
+        });
         break;
       default:
         // router.push('/')

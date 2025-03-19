@@ -34,7 +34,7 @@ export const Navbar = (props: any) => {
 
   return (
     <NextUINavbar maxWidth="xl" position="sticky">
-      <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
+      {/* <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand className="gap-3 max-w-fit">
           {isBackAble ? (
             <RiArrowGoBackFill
@@ -45,25 +45,8 @@ export const Navbar = (props: any) => {
           ) : null}
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Logo />
-            {/* <p className="font-bold text-inherit">Tonspack</p> */}
           </NextLink>
         </NavbarBrand>
-        {/* <div className="hidden lg:flex gap-4 justify-start ml-2">
-          {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href}>
-              <NextLink
-                className={clsx(
-                  linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium",
-                )}
-                color="foreground"
-                href={item.href}
-              >
-                {item.label}
-              </NextLink>
-            </NavbarItem>
-          ))}
-        </div> */}
       </NavbarContent>
 
       <NavbarContent
@@ -77,7 +60,6 @@ export const Navbar = (props: any) => {
           <Link isExternal href={siteConfig.links.github}>
             <GithubIcon className="text-default-500" />
           </Link>
-          {/* <ThemeSwitch /> */}
         </NavbarItem>
       </NavbarContent>
 
@@ -85,9 +67,7 @@ export const Navbar = (props: any) => {
         <Link isExternal href={siteConfig.links.github}>
           <GithubIcon className="text-default-500" />
         </Link>
-        {/* <ThemeSwitch /> */}
-        {/* <NavbarMenuToggle /> */}
-      </NavbarContent>
+      </NavbarContent> */}
     </NextUINavbar>
   );
 };
