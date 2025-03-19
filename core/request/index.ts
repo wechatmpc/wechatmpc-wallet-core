@@ -14,7 +14,7 @@ import { storage_get_authkey } from "../storage/index";
 
 const siteBaseUrl = config.siteBaseUrl;
 
-const request_baseurl = `${siteBaseUrl}api/`;
+const request_baseurl = `${config.requestBaseUrl}`;
 const tonapi_baseurl = "https://tonapi.io/";
 const tonsbrige_baseurl = `${siteBaseUrl}/bridge/`;
 const dapp_indexer_baseurl = `https://tonspay.github.io/Tonspack-dapp-indexer/`;

@@ -1,5 +1,6 @@
 interface ObjConfig {
   siteBaseUrl: string;
+  requestBaseUrl:string;
   solanaConnection: string;
   evmProviders: {
     [x: string]: string;
@@ -59,6 +60,7 @@ interface ObjConfig {
 
 const config: ObjConfig = {
   siteBaseUrl: "https://app.tonspack.com/",
+  requestBaseUrl: "https://mpcapi.sidcloud.cn/",
   solanaConnection:
     "https://mainnet.helius-rpc.com/?api-key=a32e6052-b2ed-491f-9521-ac6df5e9665a",
   evmProviders: {

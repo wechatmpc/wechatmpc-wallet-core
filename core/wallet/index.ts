@@ -7,7 +7,7 @@ import {
   api_mpc_action,
   api_price_oracle,
 } from "../request/index";
-import { miniapp_init } from "../utils/tg";
+// import { miniapp_init } from "../utils/tg";
 import {
   storage_set_authkey,
   storage_get_raw_init_data,
@@ -22,17 +22,35 @@ import * as mpc from "./mpc";
 
 function wallet_init_data_set() {
   // console.log("🚧 This is  wallet_init_data_set")
-  let init;
+  // let init;
 
   // console.log("🚧 This is  storage_get_raw_init_data",storage_get_raw_init_data())
-  if (
-    !storage_get_raw_init_data() ||
-    !storage_get_raw_init_data()?.isTelegram
-  ) {
-    init = miniapp_init();
-    storage_set_raw_init_data(init);
+
+  // if (
+  //   !storage_get_raw_init_data() ||
+  //   !storage_get_raw_init_data()?.isTelegram
+  // ) {
+  //   init = miniapp_init();
+  //   storage_set_raw_init_data(init);
+  // }
+  const params = new URLSearchParams(window.location.search);
+  const action = params.get("action");
+  console.log("ACTION now :: ",action)
+
+
+
+  let init = {
+    starData:""
   }
 
+  if(!action)
+  {
+    window.close()
+  }else
+  {
+    init.starData = action
+  }
+  storage_set_raw_init_data(init);
   return init;
 }
 

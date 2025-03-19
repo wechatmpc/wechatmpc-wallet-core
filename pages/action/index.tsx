@@ -231,7 +231,7 @@ export default function DocsPage() {
             color="success"
             radius="full"
             style={{ maxWidth: "400px", width: "100%", textAlign: "center" }}
-            onClick={button_confirm}
+            onPress={button_confirm}
           >
             {action && action?.t == 0 ? "Connect " : null}
             {action && action?.t == 1 ? "Sign " : null}
