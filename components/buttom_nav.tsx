@@ -56,24 +56,24 @@ export const ButtomNav = (props: any) => {
 
   const iconSize = "30";
   const tabList = [
-    {
-      name: "dapp",
-      title: "Demo",
-      icon: (
-        <RiMenu3Line
-          color="white"
-          size={iconSize}
-          onClick={() => setSwitchRouter("dapp")}
-        />
-      ),
-      activeIcon: (
-        <RiMenu2Fill
-          color="white"
-          size={iconSize}
-          onClick={() => setSwitchRouter("dapp")}
-        />
-      ),
-    },
+    // {
+    //   name: "dapp",
+    //   title: "Demo",
+    //   icon: (
+    //     <RiMenu3Line
+    //       color="white"
+    //       size={iconSize}
+    //       onClick={() => setSwitchRouter("dapp")}
+    //     />
+    //   ),
+    //   activeIcon: (
+    //     <RiMenu2Fill
+    //       color="white"
+    //       size={iconSize}
+    //       onClick={() => setSwitchRouter("dapp")}
+    //     />
+    //   ),
+    // },
     {
       name: "wallet",
       title: "签名",
